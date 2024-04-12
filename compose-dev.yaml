@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .  # Asegúrate de que el Dockerfile esté en el mismo directorio que el docker-compose
+      dockerfile: Dockerfile  # Puedes especificar un nombre diferente si tu Dockerfile tiene un nombre distinto
+    entrypoint:
+      - sleep
+      - infinity
+    init: true
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
